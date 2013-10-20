@@ -3,6 +3,20 @@
   <groupId>io.github.yasuyuki</groupId>
   <artifactId>j4cache</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>1.4</source>
+            <target>1.4</target>
+            <encoding>UTF-8</encoding>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
   <dependencies>
   	<dependency>
   		<groupId>commons-lang</groupId>
@@ -20,4 +34,7 @@
   		<version>3.8.2</version>
   	</dependency>
   </dependencies>
+  <properties>
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
 </project>
