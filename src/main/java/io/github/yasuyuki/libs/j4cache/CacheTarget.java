@@ -4,7 +4,7 @@
 package io.github.yasuyuki.libs.j4cache;
 
 /**
- * @author flame
+ * @author INOUE Yasuyuki
  * 
  */
 public interface CacheTarget {
