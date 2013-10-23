@@ -44,7 +44,6 @@ public class Cache {
 	 */
 	public Object get(Object key) {
 		Object keyObj = target.getKey(key);
-		CachedValue value = (CachedValue) map.get(keyObj);
 		long now;
 		if (timeout == 0) {
 			now = 0;
@@ -52,8 +51,12 @@ public class Cache {
 			now = System.currentTimeMillis();
 		}
 
-		if (value != null && !value.isLimitOver(now)) {
-			return value.getValue();
+		CachedValue value;
+		if (!sized) {
+			value = (CachedValue) map.get(keyObj);
+			if (value != null && !value.isLimitOver(now)) {
+				return value.getValue();
+			}
 		}
 
 		synchronized (map) {

@@ -12,12 +12,13 @@ public class CacheTest extends TestCase {
 			}
 		});
 
-		Object object = cache.get("key");
+		String key = "key";
+		Object object = cache.get(key);
 
-		assertEquals("key", object);
+		assertEquals(key, object);
 
-		object = cache.get("key");
-		assertEquals("key", object);
+		object = cache.get(key);
+		assertSame(key, object);
 	}
 
 }
