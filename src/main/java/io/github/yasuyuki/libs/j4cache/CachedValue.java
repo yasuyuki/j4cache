@@ -11,12 +11,12 @@ public class CachedValue {
 	private final Object value;
 	private final long limit;
 
-	CachedValue(Object value, long limit) {
+	CachedValue(Object value, long now, long limit) {
 		this.value = value;
-		this.limit = limit;
+		this.limit = now + limit;
 	}
 
-	CachedValue(Object value) {
+	public CachedValue(Object value) {
 		this.value = value;
 		this.limit = 0;
 	}
@@ -39,7 +39,7 @@ public class CachedValue {
 	/**
 	 * @return
 	 */
-	Object getValue() {
+	public Object getValue() {
 		return value;
 	}
 }

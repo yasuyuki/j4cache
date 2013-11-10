@@ -2,13 +2,13 @@ package io.github.yasuyuki.libs.j4cache;
 
 import junit.framework.TestCase;
 
-public class CacheTest extends TestCase {
+public class NoLimitCacheTest extends TestCase {
 
 	public void testGet() {
-		Cache cache = Cache.getInstance(0, 0, new SimpleKeyTarget() {
+		Cache cache = CacheFactory.getInstance(0, 0, new SimpleKeyTarget() {
 			
 			public Object loadValue(Object keyObj) {
-				return keyObj;
+				return keyObj + "";
 			}
 		});
 
@@ -17,8 +17,8 @@ public class CacheTest extends TestCase {
 
 		assertEquals(key, object);
 
-		object = cache.get(key);
-		assertSame(key, object);
+		Object object2 = cache.get(key);
+		assertSame(object, object2);
 	}
 
 }

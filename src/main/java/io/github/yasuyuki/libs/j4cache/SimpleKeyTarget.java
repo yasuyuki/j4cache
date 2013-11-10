@@ -17,12 +17,4 @@ public abstract class SimpleKeyTarget implements CacheTarget {
 	public Object getKey(Object keyObj) {
 		return keyObj;
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * io.github.yasuyuki.libs.j4cache.CacheTarget#loadValue(java.lang.Object)
-	 */
-	public abstract Object loadValue(Object keyObj);
 }
