@@ -26,7 +26,7 @@ public class LruNoTimeLimitCache implements Cache {
 	 * 
 	 * @see io.github.yasuyuki.libs.j4cache.Cache#get(java.lang.Object)
 	 */
-	public Object get(Object key) {
+	public Object get(Object key, Object resource) {
 		Object keyObj = target.getKey(key);
 
 		CachedValue value;
@@ -34,7 +34,7 @@ public class LruNoTimeLimitCache implements Cache {
 		synchronized (map) {
 			value = (CachedValue) map.get(keyObj);
 			if (value == null) {
-				value = new CachedValue(target.loadValue(keyObj));
+				value = new CachedValue(target.loadValue(keyObj, resource));
 
 				map.put(keyObj, value);
 			}

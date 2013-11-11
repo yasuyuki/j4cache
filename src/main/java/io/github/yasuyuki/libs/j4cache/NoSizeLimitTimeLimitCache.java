@@ -29,7 +29,7 @@ public class NoSizeLimitTimeLimitCache implements Cache {
 	 * 
 	 * @see io.github.yasuyuki.libs.j4cache.Cache#get(java.lang.Object)
 	 */
-	public Object get(Object key) {
+	public Object get(Object key, Object resource) {
 		Object keyObj = target.getKey(key);
 		long now = System.currentTimeMillis();
 
@@ -45,7 +45,7 @@ public class NoSizeLimitTimeLimitCache implements Cache {
 				return value.getValue();
 			}
 
-			value = new CachedValue(target.loadValue(keyObj), now, timeout);
+			value = new CachedValue(target.loadValue(keyObj, resource), now, timeout);
 
 			LinkedHashMap tempMap = (LinkedHashMap) map.clone();
 			tempMap.put(keyObj, value);

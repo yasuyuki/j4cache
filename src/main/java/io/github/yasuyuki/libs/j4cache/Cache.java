@@ -4,9 +4,10 @@ public interface Cache {
 
 	/**
 	 * @param key
+	 * @param resource
 	 * @return
 	 */
-	public abstract Object get(Object key);
+	public abstract Object get(Object key, Object resource);
 
 	/**
 	 * @return

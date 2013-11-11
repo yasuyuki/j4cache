@@ -16,7 +16,8 @@ public interface CacheTarget {
 
 	/**
 	 * @param keyObj
+	 * @param resource
 	 * @return
 	 */
-	public Object loadValue(Object keyObj);
+	public Object loadValue(Object keyObj, Object resource);
 }

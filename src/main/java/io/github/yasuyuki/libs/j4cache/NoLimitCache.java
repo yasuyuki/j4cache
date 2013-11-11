@@ -25,7 +25,7 @@ public class NoLimitCache implements Cache {
 	 * 
 	 * @see io.github.yasuyuki.libs.j4cache.Cache#get(java.lang.Object)
 	 */
-	public Object get(Object key) {
+	public Object get(Object key, Object resource) {
 		Object keyObj = target.getKey(key);
 
 		CachedValue value = (CachedValue) map.get(keyObj);
@@ -39,7 +39,7 @@ public class NoLimitCache implements Cache {
 				return value.getValue();
 			}
 
-			value = new CachedValue(target.loadValue(keyObj));
+			value = new CachedValue(target.loadValue(keyObj, resource));
 
 			HashMap tempMap = new HashMap();
 			tempMap.put(keyObj, value);
