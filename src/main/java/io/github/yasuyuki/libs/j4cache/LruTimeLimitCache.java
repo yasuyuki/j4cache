@@ -62,7 +62,7 @@ public class LruTimeLimitCache implements Cache {
 			if (!value.isLimitOver(now)) {
 				return;
 			}
-			tempMap.remove(entry.getKey());
+			it.remove();
 		}
 	}
 
